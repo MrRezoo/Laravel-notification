@@ -9,13 +9,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "ext-curl": "^7.4",
+        "ext-json": "*",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.5",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "trez/raygan-sms": "^2.0"
     },
     "require-dev": {
+        "clxcommunications/sdk-xms": "^1.1.1",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",

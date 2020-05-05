@@ -30,4 +30,18 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'raygansms' => [
+        'user_name' => env('RAYGANSMS_USERNAME'),
+        'password' => env('RAYGANSMS_PASSWORD'),
+        'phone_number_sender' => env('RAYGANSMS_PHONE_NUMBER_SENDER'),
+        'phone_number_receiver' => env('RAYGANSMS_PHONE_NUMBER_RECEIVER')
+    ],
+
+    'sinchsms' => [
+    'Authorization' => env('SINCHSMS_AUTHORIZATION'),
+    'url' => env('SINCHSMS_URL'),
+]
+
+
+
 ];
