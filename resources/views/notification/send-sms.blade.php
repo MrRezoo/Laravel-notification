@@ -1,6 +1,6 @@
 @extends('layouts.vertical')
 
-@section('title','Send Email')
+@section('title','Send Sms')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href='{{asset("/assets/css/select2.css")}}'>
@@ -23,10 +23,10 @@
                             </div>
                         @endif
                         <div class="card-header">
-                            <h5 class="card-title">@lang('notification.send_email')</h5>
+                            <h5 class="card-title">@lang('notification.send_sms')</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('notification.send.email')}}" method="POST">
+                            <form action="{{route('notification.send.sms')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     @if($errors->any())
@@ -45,20 +45,18 @@
                                                 multiple="multiple"
                                                 name="user" id="user">
                                             @foreach ($users as $user)
-                                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                                <option
+                                                    {{old('user') == $user->id ? 'selected' : '' }} value="{{$user->id}}">{{$user->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="mb-5">
                                         <label class="col-form-label"
-                                               for="email_type">@lang('notification.email_type')</label>
-                                        <select class="form-control form-control-secondary btn-square" name="email_type"
-                                                id="email_type">
-                                            @foreach($emailTypes as $key=>$type)
-                                                <option value="{{$key}}">{{$type}}</option>
-                                            @endforeach
-                                        </select>
+                                               for="text">@lang('notification.sms_text')</label>
+                                        <textarea class="form-control form-control-secondary btn-square" name="text"
+                                                  id="text">{{old('text')}}
+                                        </textarea>
                                     </div>
 
 
