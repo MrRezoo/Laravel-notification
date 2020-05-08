@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 
-@include('front.head')
-<link rel="stylesheet" type="text/css" href='{{url("/panel/assets/css/owlcarousel.css")}}'>
+@include('layouts.head')
+<link rel="stylesheet" type="text/css" href='{{url("/assets/css/owlcarousel.css")}}'>
 <body main-theme-layout="rtl">
 <!-- Loader starts-->
 <div class="loader-wrapper">
@@ -13,16 +13,14 @@
 <!-- Loader ends-->
 <!-- page-wrapper Start-->
 <div class="page-wrapper vertical">
-@include('front.header')
+@include('layouts.header')
 <!-- vertical menu start-->
-@include('front.vertical_menu')
+@include('layouts.vertical_menu')
 <!-- vertical menu ends-->
     <!-- Page Body Start-->
     <div class="page-body-wrapper">
         <!-- Right sidebar Start-->
-    @include('panel.rslidebar')
     <!-- Right sidebar Ends-->
-        @include('panel.messages')
         <div class="page-body vertical-menu-mt">
             <div class="container-fluid">
                 <div class="page-header">
@@ -40,7 +38,7 @@
                             </div>
                         </div>
                         <!-- Bookmark Start-->
-                    @include('panel.bookmarkStart')
+
                     <!-- Bookmark Ends-->
                     </div>
                 </div>
@@ -48,26 +46,20 @@
             <!-- Container-fluid starts-->
             <div class="container-fluid">
                 <div class="row">
-                    @include('front.slider')
-                    @include('front.descriptCard')
-                    @include('front.tashakolha')
-                    @include('front.article')
-                    @include('front.toturial')
-                    @include('front.contactUs')
-
+                    @yield('content')
                 </div>
             </div>
             <!-- Container-fluid Ends-->
 
         </div>
-        @include('front.footer')
+        @include('layouts.footer')
     </div>
 </div>
 
 <!-- js-->
-@include('front.js')
-<script src='{{url("/panel/assets/js/owlcarousel/owl.carousel.js")}}'></script>
-<script src='{{url("/panel/assets/js/owlcarousel/owl-custom.js")}}'></script>
+@include('layouts.js')
+<script src='{{url("/assets/js/owlcarousel/owl.carousel.js")}}'></script>
+<script src='{{url("/assets/js/owlcarousel/owl-custom.js")}}'></script>
 </body>
 
 </html>
