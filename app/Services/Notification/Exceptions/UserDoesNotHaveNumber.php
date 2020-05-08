@@ -4,7 +4,7 @@
 namespace App\Services\Notification\Exceptions;
 
 
-class UserDoesNotHaveNumber
+class UserDoesNotHaveNumber extends \Exception
 {
 
 }

@@ -9,7 +9,7 @@ use App\Mail\TestMail;
 use App\Mail\UserRegister;
 use http\Exception\InvalidArgumentException;
 
-class EmailType
+class EmailTypes
 {
     const USER_REGISTERED = 1;
     const TEST_MAIL = 2;

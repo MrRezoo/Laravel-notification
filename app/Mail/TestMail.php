@@ -30,6 +30,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.test_mail');
+        return $this->view('emails.test_mail');
     }
 }

@@ -4,12 +4,10 @@
 namespace App\Services\Notification\Providers;
 
 
-
+use App\Services\Notification\Exceptions\UserDoesNotHaveNumber;
 use App\Services\Notification\Providers\Contracts\Provider;
 use App\User;
 use GuzzleHttp\Client;
-
-
 
 
 class SmsProvider implements Provider
@@ -38,6 +36,8 @@ class SmsProvider implements Provider
 
     public function send()
     {
+
+
         $client = new Client();
         //        HttpClient([ 'timeout'=> 10,'connect_timeout' => 10,]);
         $url_send_message = 'https://RayganSMS.com/SendMessageWithPost.ashx';
@@ -56,7 +56,7 @@ class SmsProvider implements Provider
 
     private function prepareDataForSms()
     {
-
+        $this->havePhoneNumber();
         $user_name = config('services.raygansms.user_name');
         $password = config('services.raygansms.password');
         $send_phone_number = config('services.raygansms.phone_number_sender');
@@ -71,6 +71,14 @@ class SmsProvider implements Provider
         ];
 
         return ['form_params' => $params];
+
+    }
+
+    private function havePhoneNumber()
+    {
+        if (is_null($this->user->phone_number)) {
+            throw new UserDoesNotHaveNumber();
+        }
 
     }
 
